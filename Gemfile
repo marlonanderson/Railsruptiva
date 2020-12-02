@@ -43,4 +43,20 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise_token_auth'
 
 gem 'devise'
+
+# setting up RSpec
 gem 'pg', '~> 0.21.0'
+group :development, :test do
+  gem 'pry-rails'
+  %w[rspec-core rspec-rails rspec-expectations rspec-mocks rspec-support].each do |lib|
+    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+  end
+end
+
+group :test do
+  gem 'factory_bot_rails'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'database_cleaner'
+end
+
+gem "pundit"
